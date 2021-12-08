@@ -1,10 +1,10 @@
 import diagnosesData from "../../data/diagnoses.json";
 
-import DiagnoseEntry from "../types";
+import { DiagnoseEntry } from "../types";
 
 const diagnoses: Array<DiagnoseEntry> = diagnosesData as Array<DiagnoseEntry>;
 
-const getEntries = (): Pick<DiagnoseEntry, "code" | "name" | "latin">[] => {
+const getEntries = (): DiagnoseEntry[] => {
     return diagnoses;
 }
 
