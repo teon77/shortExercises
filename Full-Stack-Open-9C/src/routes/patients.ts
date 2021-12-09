@@ -12,7 +12,7 @@ router.post('/', (req, res) => {
     const newPatientEntry = toNewPatientEntry(req.body);
     const addedEntry = patientsService.addEntry(newPatientEntry);
     res.json(addedEntry);
-  } catch (err) {
+  } catch (err: any) {
     res.status(400).send({ error: err.message})
   }
 });
