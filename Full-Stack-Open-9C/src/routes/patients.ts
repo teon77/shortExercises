@@ -17,4 +17,13 @@ router.post('/', (req, res) => {
   }
 });
 
+router.get("/:id", (req, res) => {
+  try {
+    const findPatientEntry = patientsService.findById(req.params.id);
+    res.json(findPatientEntry);
+  } catch (err: any) {
+    res.status(400).send({ error: err.message})
+  }
+});
+
 export default router;

@@ -2,30 +2,45 @@ import React from 'react';
 import { Header } from "./components/Header";
 import { Content } from "./components/Content";
 import { Total } from "./components/Total";
+import { CoursePart } from './types';
+
 const App = () => {
   const courseName: string = "Half Stack application development";
-  const courseParts = [
+  const courseParts: CoursePart[] = [
     {
       name: "Fundamentals",
-      exerciseCount: 10
+      exerciseCount: 10,
+      description: "This is the leisured course part",
+      type: "normal"
+    },
+    {
+      name: "Advanced",
+      exerciseCount: 7,
+      description: "This is the harder course part",
+      type: "normal"
     },
     {
       name: "Using props to pass data",
-      exerciseCount: 7
+      exerciseCount: 7,
+      groupProjectCount: 3,
+      type: "groupProject"
     },
     {
       name: "Deeper type usage",
-      exerciseCount: 14
+      exerciseCount: 14,
+      description: "Confusing description",
+      exerciseSubmissionLink: "https://fake-exercise-submit.made-up-url.dev",
+      type: "submission"
     }
   ];
+
 
   return (
     <div>
       <Header courseName={ courseName }/>
-      {courseParts ? courseParts.map((coursePartsEntry) => {
-        return <Content name={coursePartsEntry.name} exerciseCount={coursePartsEntry.exerciseCount} />
-      }) : null}
-      <Total data={ courseParts}/>
+      <Content courseParts={courseParts} />
+     
+      <Total data={ courseParts }/>
     </div>
   );
 };

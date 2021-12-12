@@ -1,11 +1,11 @@
-export interface ContentProps {
-    name: string;
-    exerciseCount: number;
-}
+import React from 'react'
+import { Part } from "./Part"
+import { CoursePart } from '../types';
 
-export const Content = (props: ContentProps) => {
-    return (
-        <p>{props.name} {props.exerciseCount }</p>
-    )
-}
+export const Content = ({ courseParts }: { courseParts: CoursePart[] }) =>
+    <div>
+      {courseParts.map((part, i) =>
+        <Part key={i} part={part} />
+      )}
+    </div>
 
